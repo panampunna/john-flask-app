@@ -1,0 +1,7 @@
+localhost:5432:mydb:myuser:mypassword
+
+localhost:5432:john_database:psql_user:psqlpw
+localhost:5422:john_database:psql_user:psqlpw
+
+localhost:5432:johndb:john:mysql
+localhost:5432:john_database:psql_user:mysql
