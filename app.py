@@ -29,7 +29,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
-
+###############################################################
 # Route to handle form submission
 @app.route('/insert_data', methods=['POST'])
 def insert_data():
@@ -44,13 +44,16 @@ def insert_data():
     values = (name, age, address, location)
 
     try:
+        cursor = connection.cursor()  # Define the cursor here
         cursor.execute(insert_query, values)
         connection.commit()
         print("Data inserted successfully!")
     except (Exception, psycopg2.Error) as error:
         print("Failed to insert data:", error)
 
-    return "Data inserted successfully! http://127.0.0.1:5000/   <a href=""> http://127.0.0.1:5000  </a>"
+    return "Data inserted successfully! http://127.0.0.1:5000/   <a href=''>http://127.0.0.1:5000</a>"
+
+################################################
 
 if __name__ == '__main__':
     app.run()

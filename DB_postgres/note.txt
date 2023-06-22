@@ -1,0 +1,3 @@
+
+john_database.sql insert this DB to the Databse and start working or you need to give scema and table rights to access the table 
+
