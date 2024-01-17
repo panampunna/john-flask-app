@@ -12,7 +12,6 @@ phases:
       - echo "$VAR1" 
       - echo "Logging in to Docker Hub"
       - pwd  
-      - ./DOCKER-folder/hub.docker.com/panampunna-kerala/hub-docker-login.sh  # Replace with your Docker login script
 
   build:
     commands:
