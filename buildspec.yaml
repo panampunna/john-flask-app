@@ -1,0 +1,30 @@
+
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Logging in to Docker Hub"
+      - pwd  
+      - ./DOCKER-folder/hub.docker.com/panampunna-kerala/hub-docker-login.sh  # Replace with your Docker login script
+
+  build:
+    commands:
+      - echo "Building Docker image"
+      - cd DOCKER-folder/hub.docker.com/panampunna-kerala
+      - ls   
+      - docker build -t panampunna-kerala:latest .  # Replace with your Docker image name and tag
+
+  post_build:
+    commands:
+      - echo "Tagging Docker image for S3"
+      - ls   
+      - docker tag panampunna-kerala:latest $CODEBUILD_RESOLVED_SOURCE_VERSION
+      - echo "Pushing Docker image to S3"
+      - aws s3 cp $CODEBUILD_RESOLVED_SOURCE_VERSION s3://your-s3-bucket/$CODEBUILD_RESOLVED_SOURCE_VERSION  # Replace with your S3 bucket name
+
+artifacts:
+  files: '**/*'
+
+
+
