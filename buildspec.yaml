@@ -1,9 +1,15 @@
 
 version: 0.2
 
+variables:
+  VAR1: "VargheseJohn"
+  VAR2: "value2"
+  VAR3: "value3"
+
 phases:
   pre_build:
     commands:
+      - echo "$VAR1" 
       - echo "Logging in to Docker Hub"
       - pwd  
       - ./DOCKER-folder/hub.docker.com/panampunna-kerala/hub-docker-login.sh  # Replace with your Docker login script
